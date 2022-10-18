@@ -3,7 +3,7 @@ public class Point2D {
     private int x, y;
 
     public Point2D() {
-        this(0, 0);
+        this(0, 0);  // это конструктор умолчаний, а конструктор по умолчанию создается Java когда вообще нет конструкторов, замыкаем на основной коструктор
     }
 
     public Point2D(int x, int y) {
