@@ -2,6 +2,10 @@ public class Point2D {
 
     private int x, y;
 
+    private double length;
+
+
+
     public Point2D() {
         this(0, 0);  // это конструктор умолчаний, а конструктор по умолчанию создается Java когда вообще нет конструкторов, передаем управление на основной полный коструктор
     }
@@ -23,7 +27,7 @@ public class Point2D {
         return y;
     }
 
-    public final void setY(int y) { // лучше сделать сеттеры final, чтобы из нельзя было переопределить
+    public final void setY(int y) { // лучше сделать сеттеры final, чтобы метод из нельзя было переопределить
         this.y = y;
     }
 
@@ -36,5 +40,9 @@ public class Point2D {
         sb.append(")");
 
         return sb.toString();
+    }
+
+    private void lengthCalc() {
+        length = Math.sqrt(x*x + y*y);
     }
 }
