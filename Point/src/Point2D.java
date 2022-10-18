@@ -21,6 +21,7 @@ public class Point2D {
 
     public final void setX(int x) { // лучше сделать сеттеры final, чтобы из нельзя было переопределить
         this.x = x;
+        lengthCalc();
     }
 
     public int getY() {
@@ -29,10 +30,15 @@ public class Point2D {
 
     public final void setY(int y) { // лучше сделать сеттеры final, чтобы метод из нельзя было переопределить
         this.y = y;
+        lengthCalc();
+    }
+
+    public double getLength() {
+        return length;
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
         StringBuilder sb = new StringBuilder("(");
         sb.append(x);
         sb.append(", ");
@@ -40,6 +46,15 @@ public class Point2D {
         sb.append(")");
 
         return sb.toString();
+    }
+
+    public final String printLength() {
+        //return this.toString() + ", length = " + this.getLength();
+        StringBuilder sb = new StringBuilder(this.toString());
+        sb.append(", length = ");
+        sb.append(this.getLength());
+        return sb.toString();
+
     }
 
     private void lengthCalc() {
