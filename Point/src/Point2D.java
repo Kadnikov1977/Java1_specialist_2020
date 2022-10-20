@@ -4,7 +4,9 @@ public class Point2D {
 
     private double length;
 
+    private static int pointsCounter;
 
+    private final int pointID;
 
     public Point2D() {
         this(0, 0);  // это конструктор умолчаний, а конструктор по умолчанию создается Java когда вообще нет конструкторов, передаем управление на основной полный коструктор
@@ -13,6 +15,7 @@ public class Point2D {
     public Point2D(int x, int y) {
         setX(x); // тут лучше передавать на сеттеры, т кт там может быть логика
         setY(y);
+        pointID = pointsCounter++;
     }
 
     public int getX() {
@@ -37,6 +40,10 @@ public class Point2D {
         return length;
     }
 
+    public int getPointID() {
+        return pointID;
+    }
+
     @Override
     public final String toString() {
         StringBuilder sb = new StringBuilder("(");
@@ -55,6 +62,13 @@ public class Point2D {
         sb.append(this.getLength());
         return sb.toString();
 
+    }
+
+    public final String printID {
+        StringBuilder sb = new StringBuilder(this.toString());
+        sb.append(", ID = ");
+        sb.append(this.getPointID());
+        return sb.toString();
     }
 
     private void lengthCalc() {
